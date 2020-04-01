@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuard
+spec:
+  selector:
+    matchLabels:
+      run: kuard
+  replicas: 3
+  revisionHistoryLimit: 14
+  template:
+    metadata:
+      annotations:
+        kubernetes.io/change-cause: "Update to blue kuard"
+      labels:
+        run: kuard
+    spec:
+      containers:
+      - name: kuard
+        image: "gcr.io/kuar-demo/kuard-amd64:blue"
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
