@@ -5,10 +5,12 @@ metadata:
 spec:
   replicas: 3
   selector:
+    # select pods with labels
     matchLabels:
       app: kuard
       version: "2"
   template:
+    # pod template
     metadata:
       labels:
         app: kuard

@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: kuard
   labels:
-    name: kuard
-    book: oreilly.com/k8s-up-and-running
+    name: "kuard"
+    book: "oreilly.com_k8s-up-and-running"
 spec:
   volumes:
     - name: "kuard-data"
@@ -30,11 +30,11 @@ spec:
         failureThreshold: 3
     resources:
       requests:
-        cpu: "500m"  # 500 millicpu == 0.5 vCPU
+        cpu: "100m"  # millicores
         memory: "128Mi"
       limits:
-        cpu: "1000m"
-        memory: "256Mi"
+        cpu: "100m"
+        memory: "128Mi"
     ports:
       - containerPort: 8080
         name: http
